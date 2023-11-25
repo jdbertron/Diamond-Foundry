@@ -106,12 +106,12 @@ abstract contract HelperContract is IDiamond, IDiamondLoupe, Test{
             return false;
         }
         for (uint i = 0; i < array1.length; i++) {
-            if (containsElement(array1, array2[i])){
-                return true;
+            if (!containsElement(array1, array2[i])){
+                return false;
             }
         }
 
-        return false;
+        return true;
     }
 
     function getAllSelectors(address diamondAddress) public view returns (bytes4[] memory){
